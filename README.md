@@ -1,11 +1,4 @@
-# olap-engine
-
-OLAP 存储引擎的 Rust 完整实现，合并自：
-- **[olap-storage-engine](https://github.com/rust-olap/olap-storage-engine)** — Table/Partition/Tablet 元数据管理层
-- **[olap-segment-engine](https://github.com/rust-olap/olap-segment-engine)** — Segment V2 列存储文件 I/O 层
-
-合并的核心意义：两个项目原本互相依赖（storage 层需要 segment 层完成实际 I/O），
-现在在单一 crate 中形成完整的从"表路由"到"列存写入/读取"的闭环。
+# olap-storage-engine
 
 ---
 
