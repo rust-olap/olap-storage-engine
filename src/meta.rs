@@ -1,4 +1,5 @@
 //! Tablet 持久化元数据
+use std::num::Wrapping;
 
 use std::collections::HashMap;
 use crate::common::{
@@ -62,7 +63,7 @@ pub struct TabletSchema {
 impl TabletSchema {
     pub fn new(keys_type: KeysType, columns: Vec<ColumnSchema>) -> Self {
         // 简化 schema_hash：各列 id 的 xor
-        let hash = columns.iter().fold(0u32, |h, c| h ^ (c.column_id * 2654435761));
+        let hash = columns.iter().fold(0u32, |h, c| h ^ c.column_id.wrapping_mul(2654435761));
         Self {
             schema_version: 1, keys_type, columns,
             schema_hash: hash, num_rows_per_row_block: 1024,
