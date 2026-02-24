@@ -1,0 +1,20 @@
+[package]
+name        = "olap-storage-engine"
+version     = "0.1.0"
+edition     = "2021"
+description = "OLAP engine: Storage layer (Table/Partition/Tablet) + Segment V2 columnar I/O"
+license     = "Apache-2.0"
+
+[lib]
+name = "olap_storage_engine"
+path = "src/lib.rs"
+
+[[example]]
+name = "basic_usage"
+path = "examples/basic_usage.rs"
+
+[dependencies]
+lz4       = "1"
+crc32fast = "1"
+byteorder = "1"
+thiserror = "1"
